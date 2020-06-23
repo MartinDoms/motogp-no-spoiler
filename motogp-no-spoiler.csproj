@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>motogp_no_spoiler</RootNamespace>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RazorLight" Version="2.0.0-beta7" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Templates/Year.cshtml" />
+    <EmbeddedResource Include="Templates/Gp.cshtml" />
+  </ItemGroup>
+
+</Project>

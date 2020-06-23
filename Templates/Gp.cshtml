@@ -1,0 +1,16 @@
+<p>
+    GP @Model.Title
+</p>
+
+@foreach (var day in @Model.Days)
+{
+    <p>@day.Title</p>
+    
+    <ul>
+    @foreach (var video in day.Videos) {
+        <li>
+            <a href="@video.Url">@video.Title</a>
+        </li>   
+    }
+    </ul>
+}
