@@ -1,0 +1,7 @@
+<h1>MotoGP No Spoiler</h1>
+<ul>
+@foreach (var year in @Model.Years)
+{
+    <li><a href="./@(year).html">@year</a></li>
+}
+</ul>
