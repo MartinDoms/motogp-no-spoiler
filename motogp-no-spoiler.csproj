@@ -13,6 +13,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <EmbeddedResource Include="Templates/Header.cshtml" />
     <EmbeddedResource Include="Templates/Year.cshtml" />
     <EmbeddedResource Include="Templates/Gp.cshtml" />
   </ItemGroup>

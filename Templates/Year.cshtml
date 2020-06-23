@@ -1,1 +1,12 @@
-Year @Model.Title
+@{ await IncludeAsync("Templates.Header.cshtml", @Model); }
+
+Year @Model.Year.Title
+
+<ul>
+
+@foreach (var gp in @Model.Year.GPs)
+{
+    <li><a href="./@(Model.Year.Title)/@(gp.ShortName).html">@gp.Title</a></li>
+}
+
+</ul>

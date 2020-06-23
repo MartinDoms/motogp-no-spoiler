@@ -30,8 +30,8 @@ namespace motogp_no_spoiler
 
                 var year = await FetchYearData(y);
 
-                var yearTask = GenerateYearHtml(year, razorEngine);
-                var eventsTask = GenerateGPsForYearHtml(year, razorEngine);
+                var yearTask = GenerateYearHtml(years, year, razorEngine);
+                var eventsTask = GenerateGPsForYearHtml(years, year, razorEngine);
 
                 await Task.WhenAll(yearTask, eventsTask);
 
@@ -61,15 +61,15 @@ namespace motogp_no_spoiler
             return JsonSerializer.Deserialize<YearData>(data, options);
         }
 
-        static async Task GenerateYearHtml(YearData year, RazorLightEngine razor) {
-            string result = await razor.CompileRenderAsync("Templates.Year", year);
+        static async Task GenerateYearHtml(IEnumerable<string> years, YearData year, RazorLightEngine razor) {
+            string result = await razor.CompileRenderAsync("Templates.Year", new {Years = years.ToArray(), Year = year});
 
             Directory.CreateDirectory("output/");
             await File.WriteAllTextAsync($"output/{year.Title}.html", result);
         }
-        static async Task GenerateGPsForYearHtml(YearData year, RazorLightEngine razor) {
+        static async Task GenerateGPsForYearHtml(IEnumerable<string> allYears, YearData year, RazorLightEngine razor) {
             foreach (var gp in year.GPs) {
-                string result = await razor.CompileRenderAsync("Templates.Gp", gp);
+                string result = await razor.CompileRenderAsync("Templates.Gp", new { Years = allYears.ToArray(), GP = gp});
 
                 Directory.CreateDirectory($"output/{year.Title}");
                 await File.WriteAllTextAsync($"output/{year.Title}/{gp.ShortName}.html", result);

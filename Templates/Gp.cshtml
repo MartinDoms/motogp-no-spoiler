@@ -1,8 +1,10 @@
+@{ await IncludeAsync("Templates.Header.cshtml", @Model); }
+
 <p>
-    GP @Model.Title
+    GP @Model.GP.Title
 </p>
 
-@foreach (var day in @Model.Days)
+@foreach (var day in @Model.GP.Days)
 {
     <p>@day.Title</p>
     
