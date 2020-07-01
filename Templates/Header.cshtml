@@ -2,14 +2,15 @@
 
     <head>
         <Title>MotoGP No Spoilers</Title>
-
+        <link rel="stylesheet" type="text/css" href="@(motogp_no_spoiler.Config.BaseUrl)pure.css">
         <link rel="stylesheet" type="text/css" href="@(motogp_no_spoiler.Config.BaseUrl)style.css">
-        <link rel="stylesheet" type="text/css" href="file:///C:/src/motogp-no-spoiler/output/style.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
 
         <h1>MotoGP No Spoilers</h1>
-        <ul>
+        <ul class="year-menu">
             @foreach (var year in @Model.Years)
             {
                 <li class="menu-item"><a href="@(motogp_no_spoiler.Config.BaseUrl)@(year).html">@year</a></li>

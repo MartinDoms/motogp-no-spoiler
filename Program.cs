@@ -102,12 +102,22 @@ namespace motogp_no_spoiler
     public class Gp {
         [JsonPropertyName("gp_days")]
         public List<GpDay> Days { get; set; }
-
         [JsonPropertyName("shortname")]
         public string ShortName { get; set; }
-
         [JsonPropertyName("title")]
         public string Title { get; set; }
+
+        public IEnumerable<Video> AllVideos {
+            get {
+                return Days.SelectMany(day => day.Videos);
+            }
+        }
+
+        public IEnumerable<IGrouping<string, Video>> VideosByChampionship {
+            get {
+                return Days.SelectMany(day => day.Videos).GroupBy(vid => vid.Championship);
+            }
+        }
     }
 
     public class GpDay {
@@ -125,5 +135,7 @@ namespace motogp_no_spoiler
         public string Title { get; set; }
         [JsonPropertyName("url")]
         public Uri Url { get; set; }
+        [JsonPropertyName("champ_name")]
+        public string Championship { get; set; }
     }
 }

@@ -1,20 +1,24 @@
 @{ await IncludeAsync("Templates.Header.cshtml", @Model); }
 
-<p>
+<h2>
     GP @Model.GP.Title
-</p>
+</h2>
 
-@foreach (var day in @Model.GP.Days)
-{
-    <p>@day.Title</p>
-    
-    <ul>
-    @foreach (var video in day.Videos) {
-        <li>
-            <a href="@video.Url">@video.Title</a>
-        </li>   
+<ul class="video-list">
+    @foreach (var grouping in Model.GP.VideosByChampionship)
+    {
+        <li class="video-group">
+            <h3 class="championship-item">@grouping.Key</h3>
+            <ul class="championship-group">
+                @foreach (var video in grouping) 
+                {
+                    <li>
+                        <a href="@video.Url">@video.Title</a>
+                    </li>
+                }
+            </ul>
+        </li>
     }
-    </ul>
-}
+</ul>
 
 @{ await IncludeAsync("Templates.Footer.cshtml"); }

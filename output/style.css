@@ -1,3 +1,20 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul.year-menu {
+    margin-bottom: 0.5em;
+}
+
 li.menu-item {
     display: inline-block;
+    border: 1px solid #222;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    margin-top: 0.3em;
 }

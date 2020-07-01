@@ -1,8 +1,8 @@
 @{ await IncludeAsync("Templates.Header.cshtml", @Model); }
 
-Year @Model.Year.Title
+<h2>@Model.Year.Title</h2>
 
-<ul>
+<ul class="gp-list">
 
 @foreach (var gp in @Model.Year.GPs)
 {
