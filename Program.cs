@@ -146,5 +146,20 @@ namespace motogp_no_spoiler
         public Uri Url { get; set; }
         [JsonPropertyName("champ_name")]
         public string Championship { get; set; }
+        [JsonPropertyName("tags")]
+        public IEnumerable<Tag> Tags { get; set;}
+        [JsonPropertyName("vtid_name")]
+        public string MainTag { get; set;}
+
+        public bool IsHighlights {
+            get {
+                return MainTag == "Highlights";
+            }
+        }
+    }
+
+    public class Tag {
+        [JsonPropertyName("tag")]
+        public string TagName { get; set; }
     }
 }
