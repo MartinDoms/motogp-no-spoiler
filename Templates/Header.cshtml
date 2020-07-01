@@ -1,7 +1,17 @@
-<h1>MotoGP No Spoiler</h1>
-<ul>
-@foreach (var year in @Model.Years)
-{
-    <li><a href="./@(year).html">@year</a></li>
-}
-</ul>
+<html>
+
+    <head>
+        <Title>MotoGP No Spoilers</Title>
+
+        <link rel="stylesheet" type="text/css" href="@(motogp_no_spoiler.Config.BaseUrl)style.css">
+
+    </head>
+    <body>
+
+        <h1>MotoGP No Spoilers</h1>
+        <ul>
+            @foreach (var year in @Model.Years)
+            {
+                <li class="menu-item"><a href="@(motogp_no_spoiler.Config.BaseUrl)@(year).html">@year</a></li>
+            }
+        </ul>
