@@ -1,13 +1,48 @@
+a {
+    color: #222;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: black;
+  }
+  
+  a:visited {
+    color: #999;
+  }
+  
+
 ul {
     margin: 0;
     padding: 0;
+}
+li.menu-item {
+    padding-bottom: 0.5em;    
+}
+
+li.video-item {
+    padding-bottom: 0.3em;
+}
+
+.gp-list-item .gp-short-name {
+    font-weight: bold;
+}
+
+.gp-list-item .gp-long-name {
+    font-weight: lighter;
+    color: #888;
+    padding-left: 0.5em;
 }
 
 ul.year-menu {
     margin-bottom: 0.5em;
 }
 
-li.menu-item {
+.year-menu li.menu-item {
     display: inline-block;
     border: 1px solid #222;
     padding-top: 0.3em;

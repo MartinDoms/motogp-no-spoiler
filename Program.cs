@@ -106,6 +106,8 @@ namespace motogp_no_spoiler
         public string ShortName { get; set; }
         [JsonPropertyName("title")]
         public string Title { get; set; }
+        [JsonPropertyName("urlname")]
+        public string UrlName { get; set; }
 
         public IEnumerable<Video> AllVideos {
             get {
