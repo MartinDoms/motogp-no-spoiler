@@ -29,7 +29,7 @@ namespace motogp_no_spoiler
             var years = await GetAllYears();
 
             await Task.WhenAll(years.Select(y => ProcessYear(y, years, razorEngine)));
-            
+            await GenerateIndexHtml();
 
             Console.WriteLine("Done!");
             Console.ReadLine();
@@ -63,6 +63,13 @@ namespace motogp_no_spoiler
             var options = new JsonSerializerOptions {
             };
             return JsonSerializer.Deserialize<YearData>(data, options);
+        }
+
+        static async Task GenerateIndexHtml() {
+            var year = DateTime.Now.Year.ToString();
+            var yearFile = $"output/{year}.html";
+            var contents = await File.ReadAllTextAsync(yearFile);
+            await File.WriteAllTextAsync("output/index.html", contents);
         }
 
         static async Task GenerateYearHtml(IEnumerable<string> years, YearData year, RazorLightEngine razor) {
