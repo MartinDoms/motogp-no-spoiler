@@ -32,7 +32,7 @@ namespace GPList
             await GenerateIndexHtml();
 
             Console.WriteLine("Done!");
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         static async Task ProcessYear(string yearString, IEnumerable<string> years, RazorLightEngine razorEngine) {
