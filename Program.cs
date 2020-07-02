@@ -184,7 +184,7 @@ namespace GPList
 
                 var breads = string.Join(" > ", Breadcrumbs.Select(b => b.Text));
 
-                return $"{breads} > MotoGP Spoiler-Free GP List";
+                return $"{breads} > {main}";
             }
         }
 
