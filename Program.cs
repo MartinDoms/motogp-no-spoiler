@@ -179,7 +179,7 @@ namespace GPList
 
         public string PageTitle {
             get {
-                var main = "MotoGP Spoiler-Free GP List";
+                var main = "MotoGP Spoiler-Free List";
                 if (Breadcrumbs.Count() == 0) return main;
 
                 var breads = string.Join(" > ", Breadcrumbs.Select(b => b.Text));
