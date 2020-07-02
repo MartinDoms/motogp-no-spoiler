@@ -177,6 +177,17 @@ namespace GPList
         public IEnumerable<Link> Breadcrumbs { get; set; }
         public IEnumerable<string> Years { get; set; }
 
+        public string PageTitle {
+            get {
+                var main = "MotoGP Spoiler-Free GP List";
+                if (Breadcrumbs.Count() == 0) return main;
+
+                var breads = string.Join(" > ", Breadcrumbs.Select(b => b.Text));
+
+                return $"{breads} > MotoGP Spoiler-Free GP List";
+            }
+        }
+
         public ViewModel(string title, IEnumerable<string> years, params Link[] breadcrumbs)
         {
             this.Title = title;
