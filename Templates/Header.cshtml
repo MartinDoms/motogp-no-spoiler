@@ -1,9 +1,11 @@
+@model GPList.ViewModel
+
 <html>
 
     <head>
-        <Title>MotoGP No Spoilers</Title>
-        <link rel="stylesheet" type="text/css" href="@(motogp_no_spoiler.Config.BaseUrl)pure.css">
-        <link rel="stylesheet" type="text/css" href="@(motogp_no_spoiler.Config.BaseUrl)style.css">
+        <Title>@Model.Title - MotoGP Spoiler-Free GP List</Title>
+        <link rel="stylesheet" type="text/css" href="@(GPList.Config.BaseUrl)pure.css">
+        <link rel="stylesheet" type="text/css" href="@(GPList.Config.BaseUrl)style.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -13,6 +15,20 @@
         <ul class="year-menu">
             @foreach (var year in @Model.Years)
             {
-                <li class="menu-item"><a href="@(motogp_no_spoiler.Config.BaseUrl)@(year).html">@year</a></li>
+                <li class="menu-item"><a href="@(GPList.Config.BaseUrl)@(year).html">@year</a></li>
             }
         </ul>
+
+        <h2>
+            @{var first = true;}
+            @foreach (var breadcrumb in @Model.Breadcrumbs)
+            {
+                if (!first) 
+                {
+                    @("> ")
+                }
+                
+                <a href="@(GPList.Config.BaseUrl)@(breadcrumb.Href)">@breadcrumb.Text</a>
+                first = false;
+            }
+        </h2>

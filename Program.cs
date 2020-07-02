@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using RazorLight;
 
-namespace motogp_no_spoiler
+namespace GPList
 {
     public static class Config {
         public static string BaseUrl = "/";
@@ -74,7 +74,11 @@ namespace motogp_no_spoiler
 
         static async Task GenerateYearHtml(IEnumerable<string> years, YearData year, RazorLightEngine razor) {
             Console.WriteLine($"Generating page for {year.Title}");
-            string result = await razor.CompileRenderAsync("Templates.Year", new {Years = years.ToArray(), Year = year});
+            string result = await razor.CompileRenderAsync("Templates.Year", 
+                new ViewModel<YearData>(year.Title, years, year,
+                    new Link() { Href = $"{year.Title}.html", Text = year.Title }
+                )
+            );
 
             Directory.CreateDirectory("output/");
             var filePath = $"{year.Title}.html";
@@ -84,7 +88,12 @@ namespace motogp_no_spoiler
             Console.WriteLine($"Generating GP pages for {year.Title}");
             foreach (var gp in year.GPs) {
                 Console.WriteLine($"Generating GP page for {gp.Title}");
-                string result = await razor.CompileRenderAsync("Templates.Gp", new { Years = allYears.ToArray(), GP = gp});
+                string result = await razor.CompileRenderAsync("Templates.Gp",
+                    new ViewModel<Gp>(year.Title, allYears, gp,
+                        new Link() { Href = $"{year.Title}.html", Text = year.Title },
+                        new Link() { Href = $"{year.Title}/{gp.ShortName}.html", Text = gp.Title }
+                    )
+                );
 
                 Directory.CreateDirectory($"output/{year.Title}");
                 var filePath = $"{year.Title}/{gp.ShortName}.html";
@@ -161,5 +170,33 @@ namespace motogp_no_spoiler
     public class Tag {
         [JsonPropertyName("tag")]
         public string TagName { get; set; }
+    }
+
+    public class ViewModel {
+        public string Title { get; set; }
+        public IEnumerable<Link> Breadcrumbs { get; set; }
+        public IEnumerable<string> Years { get; set; }
+
+        public ViewModel(string title, IEnumerable<string> years, params Link[] breadcrumbs)
+        {
+            this.Title = title;
+            this.Years = years;
+            this.Breadcrumbs = breadcrumbs;
+        }
+    }
+
+    public class ViewModel<T> : ViewModel {
+        public T Model { get; set; }
+
+        public ViewModel(string title, IEnumerable<string> years, T model, params Link[] breadcrumbs)
+        : base(title, years, breadcrumbs)
+        {
+            this.Model = model;
+        }
+    }
+
+    public class Link {
+        public string Text { get; set; }
+        public string Href { get; set; }
     }
 }

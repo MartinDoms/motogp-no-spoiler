@@ -1,11 +1,9 @@
+@model GPList.ViewModel<GPList.Gp>
+
 @{ await IncludeAsync("Templates.Header.cshtml", @Model); }
 
-<h2>
-    GP @Model.GP.Title
-</h2>
-
 <ul class="video-list">
-    @foreach (var grouping in Model.GP.VideosByChampionship)
+    @foreach (var grouping in @Model.Model.VideosByChampionship)
     {
         <li class="video-group">
             <h3 class="championship-item">@grouping.Key</h3>

@@ -1,14 +1,14 @@
-@{ await IncludeAsync("Templates.Header.cshtml", @Model); }
+@model GPList.ViewModel<GPList.YearData>
 
-<h2>@Model.Year.Title</h2>
+@{ await IncludeAsync("Templates.Header.cshtml", @Model); }
 
 <ul class="gp-list">
 
-@foreach (var gp in @Model.Year.GPs)
+@foreach (var gp in @Model.Model.GPs)
 {
     <li class="gp-list-item menu-item">
         <div class="gp">
-            <a href="./@(Model.Year.Title)/@(gp.ShortName).html">
+            <a href="./@(Model.Model.Title)/@(gp.ShortName).html">
                 <div class="gp-short-name">@gp.UrlName</div>
                 <div class="gp-long-name">@gp.Title</div>
             </a>

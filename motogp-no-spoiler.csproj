@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>motogp_no_spoiler</RootNamespace>
+    <RootNamespace>GPList</RootNamespace>
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 

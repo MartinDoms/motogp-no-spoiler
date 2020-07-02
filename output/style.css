@@ -3,26 +3,32 @@ body {
 }
 
 a {
-    color: #222;
-    text-decoration: none;
-  }
+  color: #222;
+  text-decoration: none;
+}
   
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  a:active {
-    color: black;
-  }
-  
-  a:visited {
-    color: #999;
-  }
+a:visited {
+  color: #555;
+}
+
+a:active {
+  color: #d84d4b;
+}
+
+
+a:hover {
+  color: #c80502;
+  text-decoration: underline;
+}
   
 
 ul {
     margin: 0;
     padding: 0;
+    list-style-type: none;
+}
+li {
+    margin-left: 1.0em;
 }
 li.menu-item {
     padding-bottom: 0.5em;    
@@ -38,7 +44,7 @@ li.video-item {
 
 .gp-list-item .gp-long-name {
     font-weight: lighter;
-    color: #888;
+    color: #555;
     padding-left: 0.5em;
 }
 
