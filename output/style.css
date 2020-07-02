@@ -38,13 +38,16 @@ li.video-item {
     padding-bottom: 0.3em;
 }
 
+li.gp-list-item {
+    padding-bottom: 1.5em;
+}
+
 .gp-list-item .gp-short-name {
     font-weight: bold;
 }
 
 .gp-list-item .gp-long-name {
     font-weight: lighter;
-    color: #555;
     padding-left: 0.5em;
 }
 
