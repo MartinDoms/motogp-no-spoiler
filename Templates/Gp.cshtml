@@ -11,7 +11,7 @@
                 @foreach (var video in grouping) 
                 {
                     <li class="video-item">
-                        <a href="@video.Url">@video.Title</a><span class="tag">@(video.IsHighlights ? " (highlights)" : "")</span>
+                        <a href="@Raw(video.SpoilerFreeUrl)" target="_blank">@video.Title</a><span class="tag">@(video.IsHighlights ? " (highlights)" : "")</span>
                     </li>
                 }
             </ul>

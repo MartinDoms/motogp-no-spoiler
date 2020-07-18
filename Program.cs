@@ -165,6 +165,12 @@ namespace GPList
                 return MainTag == "Highlights";
             }
         }
+
+        public string SpoilerFreeUrl {
+            get {
+                return Url.ToString().Replace("/videos/", "/videos/spoiler+free/");
+            }
+        }
     }
 
     public class Tag {
