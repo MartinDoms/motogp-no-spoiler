@@ -57,7 +57,10 @@ ul.year-menu {
 
 .year-menu li.menu-item {
     display: inline-block;
-    border: 1px solid #222;
+    border-radius: 3px;
+    background: #ffffff;
+    box-shadow:  5px 5px 10px #e0e0e0, 
+                 -5px -5px 10px #ffffff;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     padding-left: 0.5em;
