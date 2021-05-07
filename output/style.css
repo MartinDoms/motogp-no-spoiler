@@ -95,3 +95,9 @@ ul.year-menu {
 .date-container .day {
   font-size: 1.5em;
 }
+
+.event-name-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
