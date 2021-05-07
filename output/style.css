@@ -73,7 +73,7 @@ ul.year-menu {
 
 .event-container {
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .date-container {
@@ -87,6 +87,7 @@ ul.year-menu {
   border: 1px solid grey;
   border-radius: 0.3em;
   width: 3em;
+  min-width: 3em;
   height: 3em;
 
 }
