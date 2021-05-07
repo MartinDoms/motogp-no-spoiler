@@ -1,5 +1,6 @@
 body {
   padding: 0.3em;
+  font-family: system-ui;
 }
 
 a {
@@ -68,4 +69,28 @@ ul.year-menu {
     margin-left: 0.3em;
     margin-right: 0.3em;
     margin-top: 0.3em;
+}
+
+.event-container {
+  display: flex;
+  align-items: center;
+}
+
+.date-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  font-weight:normal;
+  margin: 0.5em;
+
+  border: 1px solid grey;
+  border-radius: 0.3em;
+  width: 3em;
+  height: 3em;
+
+}
+
+.date-container .day {
+  font-size: 1.5em;
 }

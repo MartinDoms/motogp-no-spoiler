@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -124,6 +125,17 @@ namespace GPList
         public string Title { get; set; }
         [JsonPropertyName("urlname")]
         public string UrlName { get; set; }
+        [JsonPropertyName("date_of_end")]
+        public string DateJson { get; set; }
+        [JsonIgnore]
+        public DateTime Date
+        {
+            get
+            {
+                if (DateJson == null) return new DateTime();
+                return DateTime.ParseExact(DateJson,"yyyy-MM-ddT00:00:00+0000", CultureInfo.InvariantCulture);
+            }
+        }
 
         public IEnumerable<Video> AllVideos {
             get {
