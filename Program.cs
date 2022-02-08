@@ -68,8 +68,13 @@ namespace GPList
 
         static async Task GenerateIndexHtml() {
             var year = DateTime.Now.Year.ToString();
+            var lastYear = (DateTime.Now.Year - 1).ToString();
+
             var yearFile = $"output/{year}.html";
-            var contents = await File.ReadAllTextAsync(yearFile);
+            var lastYearFile = $"output/{year}.html";
+
+            var file = File.Exists(yearFile) ? yearFile : lastYearFile;
+            var contents = await File.ReadAllTextAsync(file);
             await File.WriteAllTextAsync("output/index.html", contents);
         }
 
