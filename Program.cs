@@ -71,7 +71,7 @@ namespace GPList
             var lastYear = (DateTime.Now.Year - 1).ToString();
 
             var yearFile = $"output/{year}.html";
-            var lastYearFile = $"output/{year}.html";
+            var lastYearFile = $"output/{lastYear}.html";
 
             var file = File.Exists(yearFile) ? yearFile : lastYearFile;
             var contents = await File.ReadAllTextAsync(file);
